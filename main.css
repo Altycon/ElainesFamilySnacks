@@ -207,7 +207,9 @@ header.scroll-up{
     color: var(--gold-color-4);
     background: var(--gold-gradient-1);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 .home-intro__content{
     padding: 1rem;
