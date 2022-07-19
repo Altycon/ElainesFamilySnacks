@@ -319,7 +319,9 @@ header.scroll-up{
     font-size: 2rem;
     background: var(--gold-gradient-1);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 /*
 *       PRODUCTS LIST
