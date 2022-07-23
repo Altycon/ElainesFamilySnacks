@@ -87,31 +87,7 @@ p{
     font-size: 5vmin;
     line-height: 8vmin;
 }
-.icon{
-    /* width: 30px; */
-    width: clamp(20px, 8vw, 50px);
-}
-input[type=text], input[type=email], textarea {
-    padding: .25rem;
-    font-size: 5vmin;
-    outline: none;
-    border: none;
-    color: var(--color-light-primary);
-    background-color: transparent;
-    border-bottom: 1px solid var(--gold-color-3);
-    transition: all 0.30s ease-in-out;
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-  }
-   
-  input[type=text]:focus, input[type=email]:focus, textarea:focus {
-    background-color: var(--color-dark-secondary);
-  }
-  input:valid{
-    border-bottom: none;
-  }
+
 .page-content{
     padding-top: var(--page-padding-top);
 }
@@ -137,9 +113,6 @@ input[type=text], input[type=email], textarea {
     top: 0; left: 0;
     padding: 1rem;
     width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
     background-color: hsl(0 0% 10% / 0.5);
     z-index: 1;
     transition: all 250ms ease-in-out;
@@ -156,89 +129,7 @@ header.scroll-up{
     font-family: var(--font-primary);
     font-size: .8rem;
 }
-.menu-button{
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    gap: 10%;
-    z-index: 2;
-}
-.menu-button__bar{
-    width: 52%;
-    height: 5%;
-    background-color: var(--color-light-primary);
-    border-radius: 50%;
-    transition: all 250ms ease-in-out;
-}
-.menu-button__bar.change:nth-child(1){
-    transform: translateX(-40%) rotate(-45deg);
-}
-.menu-button__bar.change:nth-child(2){
-    width:60%;
-}
-.menu-button__bar.change:nth-child(3){
-    transform: translateX(-40%) rotate(45deg);
-}
-/*
-*   Navigation Primary
-*/
 
-.navigation-primary{
-    padding-top: 16.6vh;
-    display: none;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--color-dark-primary);
-    background-image: linear-gradient(45deg, hsl(0 73% 33% / 0.5), transparent 50%);
-
-}
-.navigation-primary.show{
-    display: block;
-    animation: revealMenu 250ms linear forwards; 
-}
-
-.navigation-primary > ul{
-    list-style: none;
-}
-.navigation-primary.show > ul{
-    list-style: none;
-    /* animation: revealMenu 250ms linear forwards;  */
-}
-
-.navigation-primary__link{
-    position: relative;
-    display: block;
-    color: var(--color-light-primary);
-    /* font-size: 1.5rem; */
-    margin-bottom: 1rem;
-    padding: .5rem;
-    font-size: 5vmin;
-}
-.navigation-primary__link::before{
-    content: "";
-    position: absolute;
-    top: 50%; left: 0%;
-    width: 15%;
-    height: 1px;
-    background-image: var(--gold-gradient-1);
-}
-.navigation-primary__link:visited{
-    color: var(--color-light-secondary);
-}
-.navigation-primary__link:active{
-    background-color: hsl(0 0% 50% / 0.2);
-}
-.navigation-primary__link > img{
-    margin-left: 1rem;
-    transform: translateY(20%);
-    background-image: var(--gold-gradient-1);
-    border-radius: 5px;
-    padding: 5px;
-}
 /*
 *       || HOME PAGE
 */
@@ -349,48 +240,6 @@ header.scroll-up{
     margin-bottom: 1rem;
 }
 
-/*
-*       || LOCATION PAGE
-*/
-/*
-*       INTRO SECTION
-*/
-.location-intro{
-    position: relative;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-
-.location-intro__header > h1{
-    position: absolute;
-    top: -1.2rem; left: 5%;
-    text-align: left;
-    font-family: var(--font-primary);
-    font-size: 2rem;
-    color: var(--gold-color-3); /*  not sure if this being added cause a problem or a fall back*/
-    background-image: var(--gold-gradient-1);
-    background-color: transparent; /*  not sure if this being added cause a problem or a fall back*/
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-}
-.location-intro__header > p{
-    margin-bottom: 1rem;
-}
-.location-intro__address-container > p{
-    font-size: .8rem;
-    line-height: 1rem;
-}
-/*
-*       MAP
-*/
-.google-map{
-    width: 90%;
-    height: 66vh;
-}
-
-
 
 /*
 *       || PRODUCTS PAGE
@@ -487,71 +336,6 @@ header.scroll-up{
     border-radius: 50px;
 }
 
-/*
-*       || CONTACT PAGE
-*/
-
-
-.contact-form{
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-}
-.contact-form__input-container{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-}
-.contact-form__input-container > label{
-    margin-left: 0.5rem;
-    padding: .25rem;
-    text-align: left;
-}
-
-
-.contact-form__submit-button{
-    border: none;
-    font-size: 1.2rem;
-    padding: var(--lnk-btn-padding);
-    color: var(--lnk-btn-color);
-    background-image: var(--lnk-btn-bg-img);
-    box-shadow: var(--lnk-btn-bxs);
-}
-
-/*
-*       FOOTER
-*/
-footer{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-top: 1px solid var(--color-light-primary);
-    background-color: var(--color-dark-primary);
-}
-
-.navigation-secondary > ul{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
-    list-style: none;
-    padding: 1rem;
-}
-.navigation-secondary__link{
-    color: white;
-}
-.associated-links{
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    list-style: none;
-}
-.associated-link{
-    color: white;
-}
-/*
-*       Navigation Secondary
-*/
 
 /*
 *       ANIMATIONS

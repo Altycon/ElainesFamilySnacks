@@ -1,14 +1,4 @@
 
-const MenuButton = document.querySelector('.menu-button');
-
-MenuButton.addEventListener('click', (ev)=>{
-    document.body.classList.toggle('stop-scroll');
-    document.querySelectorAll('.menu-button__bar').forEach( bar => {
-        bar.classList.toggle('change');
-    })
-    document.querySelector('.navigation-primary').classList.toggle('show');
-});
-
 
 const PrimaryHeader = document.querySelector('.header-primary');
 
