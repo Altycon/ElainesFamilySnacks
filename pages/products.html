@@ -7,7 +7,10 @@
     <title>Products | Elaine's Family Snacks</title>
     <meta name="description" content="Elaine's Family Snacks is located in Kuala Lumpar, Malaysia">
     <link rel="stylesheet" href="../main.css">
+    <script defer src="../utilities/utilities.js"></script>
+    <script defer src="../data/data.js"></script>
     <script defer src="../index.js"></script>
+    <script defer src="../js/products.js"></script>
 </head>
 <body>
     <div class="page-wrapper">
@@ -25,152 +28,29 @@
                         <h1>Products</h1>
                     </header>
                 </section>
+                <section class="product-filters">
+
+                    <div class="filter-container">
+                        <label for="CategorySelect">Category</label>
+                        <select name="cagegory" id="CategorySelect" autocomplete="off">
+                            <option value="All" selected aria-selected="true">All</option>
+                            <option value="One">One</option>
+                            <option value="Two">Two</option>
+                            <option value="Three">Three</option>
+                            <option value="Four">Four</option>
+                        </select>
+                    </div>
+                    <div class="filter-container">
+                        <label for="FilterSelect">Filter</label>
+                        <select name="cagegory" id="FilterSelect" autocomplete="off">
+                            <option value="None" selected aria-selected="true">None</option>
+                            <option value="Price: low-to-high">Price: low-to-high</option>
+                            <option value="Price: high-to-low">Price: high-to-low</option>
+                        </select>
+                    </div> 
+                </section>
                 <div class="products-wrapper">
-                    <section class="product-list">
-
-                        <section class="product-category">
-                            <h2>Category One</h2>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-18-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">10oz&nbsp;24ct</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>24.99</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-3-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">23grams&nbsp;6ct</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>4.99</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-20-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">2liters&nbsp;24pc</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>106.67</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-15-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">1lb&nbsp;1pc</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>345678</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                        </section>
-
-                        <section class="product-category">
-                            <h2>Category Two</h2>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-18-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">10oz&nbsp;24ct</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>24.99</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-3-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">23grams&nbsp;6ct</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>4.99</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-20-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">2liters&nbsp;24pc</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>106.67</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-15-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">1lb&nbsp;1pc</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>345678</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                        </section>
-
-                        <section class="product-category">
-                            <h2>Category Three</h2>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-18-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">10oz&nbsp;24ct</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>24.99</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-3-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">23grams&nbsp;6ct</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>4.99</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-20-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">2liters&nbsp;24pc</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>106.67</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                            <article class="product">
-                                <div class="product-img-container">
-                                    <img src="../img/products/efb-img-15-960x1280.jpg" width="100px" alt="Snack">
-                                </div>
-                                <div class="product-info-container">
-                                    <p class="product-size">1lb&nbsp;1pc</p>
-                                    <h3 class="product-name">Snack 1</h3>
-                                    <p class="product-price"><span>$</span>345678</p>
-                                </div>
-                                <button type="button" class="product-view-button">View</button>
-                            </article>
-                        </section>
+                    <section class="product-list js-product-list">
                         
                     </section>
                 </div>
