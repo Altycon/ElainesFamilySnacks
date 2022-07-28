@@ -23,6 +23,7 @@
         </header>
         <div class="page-content-wrapper">
             <main class="page-content products">
+                
                 <section class="products-intro">
                     <header class="products-intro__header">
                         <h1>Products</h1>
@@ -41,9 +42,10 @@
                         </select>
                     </div>
                     <div class="filter-container">
-                        <label for="FilterSelect">Filter</label>
+                        <label for="FilterSelect">Sort</label>
                         <select name="cagegory" id="FilterSelect" autocomplete="off">
-                            <option value="None" selected aria-selected="true">None</option>
+                            <option value="A-to-Z" selected aria-selected="true">A to Z</option>
+                            <option value="Z-to-A">Z to A</option>
                             <option value="Price: low-to-high">Price: low-to-high</option>
                             <option value="Price: high-to-low">Price: high-to-low</option>
                         </select>
@@ -54,7 +56,31 @@
                         
                     </section>
                 </div>
-
+                <div class="p-popup">
+                    <div class="p-popup__overlay"></div>
+                    <div class="p-popup__content">
+                        <header>
+                            <div class="p-popup__close-btn">
+                                &#10006
+                            </div>
+                        </header>
+                        <section>
+                            <div class="p-popup__content-img-container">
+                                <img class="js-popup-img" src="" />
+                            </div>
+                            <div class="p-popup__content-details">
+                                <h3 class="js-popup-name"></h3>
+                                <p class="js-popup-size"></p>
+                                <p class="js-popup-count"></p>
+                                <p class="js-popup-price"></p>
+                                <p class="js-popup-category"></p>
+                                <p class="js-popup-description"></p>
+                            </div>
+                        </section>
+                        
+                        
+                    </div>
+                </div>
             </main>
         </div>
         <footer>

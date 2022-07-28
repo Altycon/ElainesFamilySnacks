@@ -206,6 +206,16 @@ const PRODUCTS = [
 ]
 
 function createProductData(amount){
+    const NAMES = [
+        "Aachener Printen","Anisette Cookies","Arrowroot biscuits","Bath Oliver",
+        "Barezek","Berger cookies","Brandy snap","Butter cookies","Buttermilk",
+        "Butter pecan cookies","Bourbon biscuits","Brownies","Canestrelli","Cantuccini biscuits",
+        "Cookie roll","Coyota cookies","Chinese almond cookies","Chocolate chip cookies",
+        "Custard cream","Dalgona Cookies","Digestive biscuits","Fortune cookies",
+        "Fig roll biscuits","Funfetti Biscuits","Garibaldi","Ginger biscuits","Hardtacks",
+        "Hubnobs","Krupuk","Lady finger","Lebkuchen","Monaka","Osmania Biscuits",
+        "Paprenjaci","Pasticcini di Mandorle","Russian tea biscuits"
+    ]
     const Categories = [
         "One","Two","Three","Four"
     ]
@@ -232,9 +242,9 @@ function createProductData(amount){
     for(let i = 0; i < amount; i++){
         dataArray.push(
             {
-                id: Math.random(),
-                name: `Product ${i}`,
-                price: `${Math.floor(Math.random() * 2000)}`,
+                id: i,
+                name: NAMES[Math.floor(Math.random()*NAMES.length)],
+                price: `${Math.floor(Math.random() * 5000)}`,
                 size: `${Math.floor(Math.random()*10)}oz`,
                 count: `${Math.floor(Math.random()*24)}ct`,
                 category: Categories[Math.floor(Math.random()*Categories.length)],

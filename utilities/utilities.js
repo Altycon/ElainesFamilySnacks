@@ -6,8 +6,10 @@ const removeAllChildElement = (parent) => {
 };
 
 const formatPrice = (price)=> {
-    return `S${(price / 100).toFixed(2)}`;
+    return `$${(price / 100).toFixed(2)}`;
 }
+
+
 
 const createProductFragment = (product)=>{
     const fragment = new DocumentFragment();
@@ -30,17 +32,36 @@ const createProductFragment = (product)=>{
     PriceElement.setAttribute('class', 'product-price');
     ButtonElement.setAttribute('class','product-view-button');
     ButtonElement.type = 'button';
+    ButtonElement.addEventListener('click', viewProduct)
 
     Article.dataset.id = product.id;
     Article.dataset.price = product.price
-    ImageElement.width = '100';
+    //ImageElement.width = '100';
     ImageElement.src = product.image;
     ImageElement.alt = 'product';
     SizeElement.innerText = product.size;
     CountElement.innerText = product.count;
     NameElement.innerText = product.name;
     PriceElement.innerText = formatPrice(product.price);
+    ButtonElement.dataset.id = product.id;
     ButtonElement.innerText = 'View';
+
+
+    // For debugging
+    // switch(product.category){
+    //     case "One":
+    //         Article.style.backgroundColor = 'hsl(0 100% 50% / 0.3)';
+    //         break;
+    //     case "Two":
+    //         Article.style.backgroundColor = 'hsl(180 100% 50% / 0.3)';
+    //         break;
+    //     case "Three":
+    //         Article.style.backgroundColor = 'hsl(220 100% 50% / 0.3)';
+    //         break;
+    //     case "Four":
+    //         Article.style.backgroundColor = 'hsl(60 100% 50% / 0.3)';
+    //     break;
+    // }
 
     ImageContainer.appendChild(ImageElement);
     SizeElement.appendChild(CountElement);
