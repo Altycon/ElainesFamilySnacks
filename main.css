@@ -310,6 +310,7 @@ header.scroll-up{
 *      CATEGORY AND SORT SELECT BOXES
 */
 .product-filters{
+    position: relative;
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -329,7 +330,13 @@ header.scroll-up{
     color: white;
     border: 1px solid var(--gold-color-3);
     border-radius: 5px;
-    background-color: transparent;
+    background: var(--color-dark-primary);
+}
+.product-filters > p{
+    position: absolute;
+    top: 90%; left: 50%;
+    transform: translateX(-50%);
+    font-size: .7rem;
 }
 /*
 *       PRODUCTS LIST
@@ -393,7 +400,7 @@ header.scroll-up{
 *       POPUP
 */
 .p-popup{
-    padding-top: 5rem;
+    padding-top: 6rem;
     position: fixed;
     bottom: 0; left: 0;
     width: 100vw;
@@ -436,15 +443,9 @@ header.scroll-up{
     position: relative;
     border-radius: 10px;
     padding: 1rem;
+    background-color: var(--color-dark-secondary);
 }
-.p-popup__content > section::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: 0.5;
-    background-image: var(--gold-gradient-1);
-    z-index: -1;
-}
+
 .p-popup__close-btn{
     display: flex;
     align-items: center;
@@ -465,7 +466,43 @@ header.scroll-up{
     max-height: 100%;
     object-fit: cover;
 }
+.p-popup__content-details{
+    display: grid;
+    grid-template-areas: 
+        "name name name"
+        "size count price"
+        "category category price"
+        "desc desc desc";
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    text-shadow: 1px 1px 2px black;
+}
 
+.popup-name{
+    grid-area: name;
+    font-size: 7vmin;
+}
+.popup-size{
+    grid-area: size;
+}
+.popup-count{
+    grid-area: count;
+}
+.popup-price{
+    grid-area: price;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.popup-category{
+    grid-area: category;
+    font-size: .8rem;
+}
+.popup-description{
+    grid-area: desc;
+}
 /*
 *       ANIMATIONS
 */

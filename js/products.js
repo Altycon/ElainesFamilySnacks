@@ -20,6 +20,7 @@ let CurrentProducts;
 
 const addProductsToPage = (products)=>{
     const ProductListContainer = document.querySelector('.js-product-list');
+    document.querySelector('.js-items-total').innerText = `${products.length}`;
     products.forEach( product => {
         const productFragment = createProductFragment(product);
         ProductListContainer.appendChild(productFragment);
@@ -69,11 +70,11 @@ const SortProducts = (products, value)=>{
 }
 function sortProductsATZ(products){
     const Items = [...products];
-    return Items.sort( (a,b) => a.name > b.name);
+    return Items.sort( (a,b) => a.name > b.name ? 1:-1);
 }
 function sortProductsZTA(products){
     const Items = [...products];
-    return Items.sort( (a,b) => a.name < b.name);
+    return Items.sort( (a,b) => a.name < b.name ? 1:-1);
 }
 function sortProductsLTH(products){
     const Items = [...products];
@@ -97,7 +98,7 @@ const changeCategory = (ev)=> {
     const FilteredProducts = filterProductCategories(Products,CategoryValue);
     const SortedProducts = SortProducts(FilteredProducts,SortValue);
     addProductsToPage(SortedProducts);
-    CurrentProducts = SortProducts;
+    CurrentProducts = SortedProducts;
 }
 
 const changeSort = (ev)=>{
@@ -112,21 +113,18 @@ const changeSort = (ev)=>{
     const FilterProducts = filterProductCategories(Products,CategoryValue);
     const SortedProducts = SortProducts(FilterProducts, SortValue);
     addProductsToPage(SortedProducts);
-    CurrentProducts = SortProducts;
+    CurrentProducts = SortedProducts;
 }
-const findProduct = (currentProducts,id)=>{
-    return (currentProducts.find( product => product.id === id));
-    
+function findProduct(currentProducts,id){
+    return currentProducts.find( product => product.id === id);
 }
 
 function viewProduct(ev){
     ev.preventDefault();
-    console.log(ev.target)
     const DATA_ID = Number(ev.target.dataset.id);
     document.body.style.overflow = 'hidden';
 
     const foundProduct = findProduct(CurrentProducts,DATA_ID);
-    console.log(foundProduct)
  
     const POPUP = document.querySelector('.p-popup');
     POPUP.classList.add('viewing');
