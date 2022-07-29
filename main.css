@@ -109,32 +109,12 @@ p{
 /*
 *   Header Primary
 */
-.header-primary{
-    top: 0; left: 0;
-    padding: 1rem;
-    width: 100vw;
-    background-color: hsl(0 0% 10% / 0.5);
-    z-index: 1;
-    transition: all 250ms ease-in-out;
-}
-/*  Hiding and revealing header on scroll   */
-header.scroll-down{
-    transform: translateY(-100%);
-}
-header.scroll-up{
-    filter: drop-shadow(0 -10px 20px hsl(0 0% 67%));
-}
 
-.website-title{
-    font-family: var(--font-primary);
-    font-size: .8rem;
-    color: var(--color-light-primary);
-    margin: 0 auto;
-}
 
 /*
 *       || HOME PAGE
 */
+
 /*
 *       INTRO SECTION
 */
@@ -152,12 +132,13 @@ header.scroll-up{
     position: absolute;
     inset: 0;
     background-image: var(--home-intro-img1);
+    background-color: var(--color-dark-primary);
     background-position: center;
     background-size: cover;
-    opacity: 0.3;
+    background-blend-mode:overlay;
     z-index: -1;
-    animation: slidingImages 60s linear infinite;
-    -webkit-animation: slidingImages 60s linear infinite;
+    /* animation: slidingImages 60s linear infinite; */
+    /* -webkit-animation: slidingImages 60s linear infinite; */
 }
 .home-intro > header > h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -222,8 +203,31 @@ header.scroll-up{
     min-height: 100vh;
     margin-bottom: 2rem;
 }
-.business-section > header > h2{
+.business-section__header > h2{
     padding: 2rem 1rem;
+    color: var(--gold-color-4);
+    background-image: var(--gold-gradient-1);
+    background-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.business-section__header > h3{
+    padding: .5rem;
+}
+.business-section__header > p{
+    margin-bottom: .5rem;
+}
+.business-section__header-hours-container{
+    margin-bottom: 1rem;
+}
+.business-section__header-hours-container > h3{
+    padding: .5rem;
+}
+.business-section__header-hours-container > p{
+    line-height: 1rem;
+    font-size: .8rem;
 }
 .business-section__content > article > p{
     padding: 1rem;
@@ -239,7 +243,16 @@ header.scroll-up{
 .faqs-section{
     min-height: 100vh;
 }
-.faqs-section > header > h2{
+.faqs-section__header{
+    color: var(--gold-color-4);
+    background-image: var(--gold-gradient-1);
+    background-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.faqs-section__header > h2{
     padding: 2rem 1rem;
 }
 .faqs-section__content{
@@ -257,6 +270,21 @@ header.scroll-up{
 /*
 *       || PRODUCTS PAGE
 */
+.product-header-primary{
+    top: 0; left: 0;
+    padding: 1rem;
+    width: 100vw;
+    background-color: hsl(0 0% 10% / 0.5);
+    z-index: 1;
+}
+
+
+.website-title{
+    font-family: var(--font-primary);
+    font-size: .8rem;
+    color: var(--color-light-primary);
+    margin: 0 auto;
+}
 
 /*
 *       PRODUCTS INTRO
