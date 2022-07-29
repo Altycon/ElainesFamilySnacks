@@ -14,7 +14,7 @@ const DOCUMENT_INFORMATION = {
 
 const CategorySelector = document.getElementById('CategorySelect');
 const FilterSelector = document.getElementById('FilterSelect');
-
+let LOADED;
 const Products = createProductData(100);
 let CurrentProducts;
 
@@ -26,6 +26,7 @@ const addProductsToPage = (products)=>{
         ProductListContainer.appendChild(productFragment);
     })
     console.log('Products On Page', products.length) //remove
+    return true;
 }
 
 const filterProductCategories = (products,value)=>{
@@ -94,11 +95,14 @@ const changeCategory = (ev)=> {
     const SortValue = document.getElementById('FilterSelect').value;
 
     removeAllChildElement(ProductListContainer);
+    document.querySelector('.js-products-loader').classList.remove('off');
 
     const FilteredProducts = filterProductCategories(Products,CategoryValue);
     const SortedProducts = SortProducts(FilteredProducts,SortValue);
     addProductsToPage(SortedProducts);
     CurrentProducts = SortedProducts;
+
+    document.querySelector('.js-products-loader').classList.add('off');
 }
 
 const changeSort = (ev)=>{
@@ -109,11 +113,14 @@ const changeSort = (ev)=>{
     const CategoryValue = document.getElementById('CategorySelect').value;
 
     removeAllChildElement(ProductListContainer);
+    document.querySelector('.js-products-loader').classList.remove('off');
 
     const FilterProducts = filterProductCategories(Products,CategoryValue);
     const SortedProducts = SortProducts(FilterProducts, SortValue);
     addProductsToPage(SortedProducts);
     CurrentProducts = SortedProducts;
+
+    document.querySelector('.js-products-loader').classList.add('off');
 }
 function findProduct(currentProducts,id){
     return currentProducts.find( product => product.id === id);
@@ -145,13 +152,21 @@ function viewProduct(ev){
     });
 }
 
-function init(){
+
+function initializeProductPage(){
 
     CategorySelector.addEventListener('input', changeCategory);
     FilterSelector.addEventListener('input', changeSort);
 
     const SORTED = sortProductsATZ(Products)
-    addProductsToPage(SORTED);
+    LOADED = addProductsToPage(SORTED);
     CurrentProducts = SORTED;
+    
 }
-window.addEventListener('load', init)
+document.addEventListener('DOMContentLoaded', initializeProductPage);
+
+window.addEventListener('load', ()=>{
+    if(LOADED){
+        document.querySelector('.js-products-loader').classList.add('off');
+    }
+})
