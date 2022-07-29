@@ -125,6 +125,11 @@ const changeSort = (ev)=>{
 function findProduct(currentProducts,id){
     return currentProducts.find( product => product.id === id);
 }
+function stopViewingProduct(ev){
+    document.querySelector('.product-header-primary').style.display = 'block';
+    document.querySelector('.p-popup').classList.remove('viewing');
+    document.body.style.overflow = 'auto';
+}
 
 function viewProduct(ev){
     ev.preventDefault();
@@ -133,9 +138,6 @@ function viewProduct(ev){
 
     const foundProduct = findProduct(CurrentProducts,DATA_ID);
  
-    const POPUP = document.querySelector('.p-popup');
-    POPUP.classList.add('viewing');
-
     document.querySelector('.js-popup-img').src = foundProduct.image;
     document.querySelector('.js-popup-name').innerText = foundProduct.name;
     document.querySelector('.js-popup-size').innerText = foundProduct.size;
@@ -144,12 +146,13 @@ function viewProduct(ev){
     document.querySelector('.js-popup-category').innerText = foundProduct.category;
     document.querySelector('.js-popup-description').innerText = foundProduct.description || "No description available";
 
+    const POPUP = document.querySelector('.p-popup');
+    POPUP.classList.add('viewing');
+
+    document.querySelector('.product-header-primary').style.display = 'none';
 
     const PopupCloseButton = document.querySelector('.p-popup__close-btn');
-    PopupCloseButton.addEventListener('click', (ev)=>{
-        document.querySelector('.p-popup').classList.remove('viewing');
-        document.body.style.overflow = 'auto';
-    });
+    PopupCloseButton.addEventListener('click', stopViewingProduct);
 }
 
 

@@ -28,6 +28,7 @@ const createProductFragment = (product)=>{
     ImageContainer.setAttribute('class', 'product-img-container');
     InfoContainer.setAttribute('class', 'product-info-container');
     SizeElement.setAttribute('class', 'product-size');
+    CountElement.setAttribute('class', 'product-count');
     NameElement.setAttribute('class', 'product-name');
     PriceElement.setAttribute('class', 'product-price');
     ButtonElement.setAttribute('class','product-view-button');
