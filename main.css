@@ -88,9 +88,6 @@ p{
     line-height: 8vmin;
 }
 
-.page-content{
-    padding-top: var(--page-padding-top);
-}
 .page-content::before{
     content: "欢迎";
     position: fixed;
@@ -119,9 +116,8 @@ p{
 *       INTRO SECTION
 */
 .home-intro{
-    padding-bottom: 5rem;
     --max-intro-opacity: 0.3;
-    min-height: calc(100vh - var(--page-padding-top));
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -133,12 +129,16 @@ p{
     inset: 0;
     background-image: var(--home-intro-img1);
     background-color: var(--color-dark-primary);
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-blend-mode:overlay;
     z-index: -1;
     /* animation: slidingImages 60s linear infinite; */
     /* -webkit-animation: slidingImages 60s linear infinite; */
+}
+.home-intro > header{
+    padding-top: 5rem;
 }
 .home-intro > header > h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -306,6 +306,9 @@ p{
     color: var(--color-light-primary);
     margin: 0 auto;
 }
+.products{
+    padding-top: 5rem;
+}
 
 /*
 *       PRODUCTS INTRO
@@ -420,6 +423,8 @@ p{
     animation: loading 1s linear 500ms infinite;
     -webkit-animation: loading 1s linear 500ms infinite;
 }
+
+
 .product-list{
     padding-top: 2rem;
     display: grid;
@@ -484,7 +489,8 @@ p{
 *       POPUP
 */
 .p-popup{
-    padding-top: 6rem;
+    overflow-y: scroll;
+    padding-top: 8vh;
     position: fixed;
     bottom: 0; left: 0;
     width: 100vw;
@@ -525,9 +531,10 @@ p{
     margin-bottom: 1rem;
 }
 .p-popup__content > section{
+    padding: 2rem 2rem;
+    width: 100%;
     position: relative;
     border-radius: 10px;
-    padding: 1rem;
     background-color: var(--color-dark-secondary);
 }
 
