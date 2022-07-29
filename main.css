@@ -513,10 +513,11 @@ p{
     padding-left: 1rem;
     padding-right: 1rem;
     opacity: 0;
-    transition: all 250ms ease 250ms;
+    transition: all 250ms ease;
 }
 .p-popup.viewing .p-popup__content{
     opacity: 1;
+    transition: all 250ms ease 250ms;
 }
 .p-popup__content > header{
     display: flex;
@@ -534,11 +535,18 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     width: 10vmin;
     height: 10vmin;
     cursor: pointer;
     margin-right: 2rem;
+    padding: 1.5rem;
+    color: var(--gold-color-4);
+    background-image: var(--gold-gradient-1);
+    background-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .p-popup__content-img-container{
     width: 80%;
