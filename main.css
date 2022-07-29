@@ -157,6 +157,7 @@ header.scroll-up{
     opacity: 0.3;
     z-index: -1;
     animation: slidingImages 60s linear infinite;
+    -webkit-animation: slidingImages 60s linear infinite;
 }
 .home-intro > header > h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -360,12 +361,15 @@ header.scroll-up{
 }
 .products-loader__dot:nth-child(1){
     animation: loading 1s linear infinite;
+    -webkit-animation: loading 1s linear infinite;
 }
 .products-loader__dot:nth-child(2){
     animation: loading 1s linear 250ms infinite;
+    -webkit-animation: loading 1s linear 250ms infinite;
 }
 .products-loader__dot:nth-child(3){
     animation: loading 1s linear 500ms infinite;
+    -webkit-animation: loading 1s linear 500ms infinite;
 }
 .product-list{
     padding-top: 2rem;
@@ -379,6 +383,7 @@ header.scroll-up{
     filter: drop-shadow(5px 5px 10px black);
     -webkit-filter: drop-shadow(5px 5px 10px black);
     animation: slideFadeUp 250ms linear forwards;
+    -webkit-animation: slideFadeUp 250ms linear forwards;
 }
 
 
@@ -673,5 +678,6 @@ header.scroll-up{
     }
     .home-intro::before{
         animation: none;
+        -webkit-animation: none;
     }
 }
