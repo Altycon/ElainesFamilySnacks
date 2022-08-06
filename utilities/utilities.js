@@ -33,7 +33,7 @@ const createProductFragment = (product)=>{
     PriceElement.setAttribute('class', 'product-price');
     ButtonElement.setAttribute('class','product-view-button');
     ButtonElement.type = 'button';
-    ButtonElement.addEventListener('click', viewProduct)
+    ButtonElement.addEventListener('click', viewProduct);
 
     Article.dataset.id = product.id;
     Article.dataset.price = product.price

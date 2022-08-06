@@ -18,6 +18,7 @@ let LOADED;
 const Products = createProductData(100);
 let CurrentProducts;
 
+
 const addProductsToPage = (products)=>{
     const ProductListContainer = document.querySelector('.js-product-list');
     document.querySelector('.js-items-total').innerText = `${products.length}`;

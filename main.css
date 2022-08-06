@@ -22,7 +22,26 @@
     --gold-color-3: hsl(46 56% 67%);
     --gold-color-4: hsl(44 79% 67%);
     --gold-gradient-1: linear-gradient(90deg, var(--gold-color-1), var(--gold-color-2), var(--gold-color-3), var(--gold-color-4));
-    
+    --purple-gradient-1: linear-gradient( 
+        hsl(262 100% 8% / 0.6),
+        hsl(271 100% 14% / 0.6), 
+        hsl(271 85% 23% / 0.6), 
+        hsl(270 73% 35% / 0.6), 
+        hsl(272 63% 46% / 0.6), 
+        hsl(273 68% 59% / 0.6),
+        hsl(274 100% 75% / 0.6),
+        hsl(278 100% 83% / 0.6) 
+    );
+    --purple-gradient-2: linear-gradient( 
+        hsl(262 100% 8% / 0.5),
+        hsl(271 100% 14% / 0.5), 
+        hsl(271 85% 23% / 0.5), 
+        hsl(270 73% 35% / 0.5), 
+        hsl(272 63% 46% / 0.5), 
+        hsl(273 68% 59% / 0.5),
+        hsl(274 100% 75% / 0.5),
+        hsl(278 100% 83% / 0.5) 
+    );
     /*  Link-button settings */
     --lnk-btn-padding: 1rem;
     --lnk-btn-color: var(--color-dark-primary);
@@ -69,9 +88,10 @@ html{
     font-family: var(--font-secondary);
 }
 body{
+    position: relative;
     text-align: center;
     color: var(--color-light-primary);
-    background-color: var(--color-dark-primary);
+    background-color: var(--color-light-primary);
 }
 h1{
     font-size: 10vmin;
@@ -89,19 +109,12 @@ p{
 }
 
 .page-content::before{
-    content: "欢迎";
+    content: "";
     position: fixed;
     inset: 0;
-    font-size: 50vh;
-    writing-mode: vertical-lr;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: -1;
-    opacity: 0.1;
-    filter: blur(2px);
-    filter: brightness(30%);
-    font-family: sans-serif;
+    
+    background-image: var(--purple-gradient-1); 
+    z-index: -1;  
 }
 /*
 *   Header Primary
@@ -122,21 +135,22 @@ p{
     flex-direction: column;
     justify-content: center;
     gap: 8vmin;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid white;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 .home-intro::before{
     content: "";
     position: absolute;
-    inset: 0;
-    background-image: var(--home-intro-img1);
-    background-color: var(--color-dark-primary);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-blend-mode:overlay;
-    z-index: -1;
-    /* animation: slidingImages 60s linear infinite; */
-    /* -webkit-animation: slidingImages 60s linear infinite; */
+    width: 75%;
+    height: 200vmax;
+    transform: translateY(-150px) rotate(60deg);
+    background-color: hsl(0 0% 0% / 0.2);
+    z-index: -1;  
 }
+
+
 .home-intro > header{
     padding-top: 5rem;
 }
@@ -151,28 +165,42 @@ p{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    text-shadow: 2px 2px 2px hsl(0 0% 0% / 0.2);
 }
 .home-intro__content{
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas: 
+    "hdr"
+    "txt"
+    "btn";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
     align-items: center;
     justify-content: space-around;
     gap: 5vmin;
+    z-index: 1;
+    color: var(--color-light-primary);
+}
+.home-intro__content > h2{
+    grid-area: hdr;
 }
 .home-intro__content > p{
+    grid-area: txt;
     margin-bottom: 2rem;
 }
 .home-intro__content__link{
+    grid-area: btn;
     position: relative;
     text-transform: uppercase;
     padding: var(--lnk-btn-padding);
     display: block;
-    min-width: 50vmin;
+    min-width: 40vmin;
     color: var(--lnk-btn-color);
     margin: 0 auto;
     text-shadow: 1px 1px 1px hsl(0 0% 0% / 0.5);
     font-size: .8rem;
+    box-shadow: var(--lnk-btn-bxs);
 }
 .home-intro__content__link::before{
     content: ">>";
@@ -186,7 +214,7 @@ p{
     
     
     background-image: var(--lnk-btn-bg-img);
-    box-shadow: var(--lnk-btn-bxs);
+    /* box-shadow: var(--lnk-btn-bxs); */
     z-index: -1;
 }
 .down-arrow-icon{
@@ -206,15 +234,17 @@ p{
     min-height: 100vh;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    /* border: 1px solid red; */
-    box-shadow: inset 0px 0px 20px black;
-    
+    border-bottom: 1px solid white;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 .business-section__header{
+    position: relative;
     padding-top: 2rem;
     padding-bottom: 3rem;
 }
+
 .business-section__header > h2{
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -226,6 +256,7 @@ p{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    text-shadow: 1px 1px 1px hsl(0 0% 0% / 0.2);
 }
 .business-section__header > h3{
     padding: .5rem;
@@ -257,13 +288,11 @@ p{
 *       FAQS SECTION
 */
 .faqs-section{
+    position: relative;
     padding-top: 2rem;
     padding-bottom: 1rem;
-    box-shadow: inset 0px 0px 20px black;
 }
-.faqs-section__header{
-    
-}
+
 .faqs-section__header > h2{
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -275,6 +304,7 @@ p{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    text-shadow: 1px 1px 1px hsl(0 0% 0% / 0.2);
 }
 .faqs-section__content{
     padding: 1rem;
@@ -314,32 +344,9 @@ p{
 *       PRODUCTS INTRO
 */
 
-.products-intro__header{
-    position: relative;
-    width: 100vw;
-    aspect-ratio: 16/9;
-}
-.products-intro__header::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("img/products/efb-img-2-720x1280.jpg");
-    background-position: center;
-    background-size: cover;
-    opacity: 0.8;
-    z-index: -1;
-}
-.products-intro__header::after{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(transparent, hsl(0 0% 0% / 0.8));
-    z-index: -1;
-}
+
+
 .products-intro__header > h1{
-    position: absolute;
-    top: -1.2rem; left: 5%;
-    text-align: left;
     font-family: var(--font-primary);
     font-size: 2rem;
     color: var(--gold-color-3); /*  not sure if this being added cause a problem or a fall back*/
@@ -625,89 +632,6 @@ footer{
     }
 }
 
-@keyframes slidingImages {
-    0%{
-        opacity: 0;
-        background-image: var(--home-intro-img1);
-    }
-    5%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img1);
-    }
-    10%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img1);
-    }
-    13%{
-        opacity: 0;
-        background-image: var(--home-intro-img1);
-    }
-    18%{
-        opacity: 0;
-        background-image:var(--home-intro-img2);
-    }
-    20%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img2);
-    }
-    30%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img2);
-    }
-    35%{
-        opacity: 0;
-        background-image: var(--home-intro-img2);
-    }
-    40%{
-        opacity: 0;
-        background-image: var(--home-intro-img3);
-    }
-    45%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img3);
-    }
-    50%{
-        opacity: var(--max-intro-opacity);
-        background-image:  var(--home-intro-img3);
-    }
-    55%{
-        opacity: 0;
-        background-image: var(--home-intro-img3);
-    }
-    60%{
-        opacity: 0;
-        background-image: var(--home-intro-img4);
-    }
-    65%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img4);
-    }
-    70%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img4);
-    }
-    75%{
-        opacity: 0;
-        background-image: var(--home-intro-img4);
-    }
-    80%{
-        opacity: 0;
-        background-image: var(--home-intro-img5);
-    }
-    85%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img5);
-    }
-    90%{
-        opacity: var(--max-intro-opacity);
-        background-image: var(--home-intro-img5);
-    }
-    100%{
-        opacity: 0;
-        background-image: var(--home-intro-img5);
-    }
-}
-
 @keyframes loading {
     0%{
         opacity: 0;
@@ -742,17 +666,83 @@ footer{
 /*
 *      MEDIA QUERIES
 */
-@media only screen and (min-width: 600px) {
-    .website-title{
-        color: red;
-    }
+@media only screen and (min-width: 500px) {
+/*
+*       || HOME PAGE
+*/
+
+/*
+*       INTRO SECTION
+*/
+.home-intro{
+    --max-intro-opacity: 0.3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8vmin;
+}
+.home-intro::before{
+    content: "";
+    position: absolute;
+    width: 66%;
+    height: 200vmax;
+    transform: rotate(60deg);
+    background-image: var(--purple-gradient-1); 
+    z-index: -1;  
+}
+.home-intro::after{
+    content: "";
+    position: absolute;
+    width: 66%;
+    height: 200vmax;
+    transform:  rotate(-33deg);
+    background-image: var(--purple-gradient-2);   
+    z-index: -1;  
+}
+.home-intro__content{
+    padding: 2rem;
+    grid-template-areas: 
+    "hdr btn"
+    "txt btn";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto ;
+    gap: 3vmin;
+}
+.home-intro__content > h2{
+    font-size: 1.5rem;
+}
+.home-intro__content > p{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+.home-intro__content__link{
+    min-width: 30vmin; 
+}
+
+
 }
 @media only screen and (min-width: 780px) {
     .website-title{
-        color: green;
+        /* color: green; */
     }
     .home-intro::before{
-        animation: none;
-        -webkit-animation: none;
+        content: "";
+        position: absolute;
+        width: 33%;
+        height: 200vmax;
+        transform: translateY(150px) rotate(60deg);
+        background-image: var(--purple-gradient-1); 
+        z-index: -1;  
+    }
+    .home-intro::after{
+        content: "";
+        position: absolute;
+        width: 33%;
+        height: 200vmax;
+        transform: translateY(100px) rotate(-33deg);
+        background-image: var(--purple-gradient-2);   
+        z-index: -1;  
     }
 }
